@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define TEXTLIMIT 100
+#define TEXTLIMIT 20
 
 int gettxt(char text[], int textlimit);
 
@@ -8,8 +8,8 @@ int main() {
 	int i, len;
 
 	len = gettxt(text, TEXTLIMIT);
-	for (i = 0; i < TEXTLIMIT; i++)
-		printf("%d x ", text[i]);
+	for (i = 0; i < TEXTLIMIT + 10; i++)
+		printf("\ni[%d] = %d", i, text[i]);
 	printf("\n\n%s", text);
 	return 0;
 
