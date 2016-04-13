@@ -29,18 +29,29 @@ int gettxt(char text[], int textlimit) {
 }
 
 void longestline(char text[], int maxpos[]) {
-	int i, beg, curlen;
-	beg = 0;
+/*	
+	Descriprion:
+		Function puts start position and length in to array.
+		maxpos[start_index, line_length]
+	
+	Variables:
+	i			- index
+	startpos	- current line starting position
+	curlen		- current line length
+*/
+	int i, startpos, curlen;
+
+	startpos = 0;
 	maxpos[0] = 0;
 	maxpos[1] = 0;
 	for (i = 0; text[i] != '\0'; i++) {
-		if (text[i] == '\n') { // && ((maxpos[1]) < (i - maxpos[0] + maxpos[1]))) {
-			curlen = i - beg;
+		if (text[i] == '\n') { 
+			curlen = i - startpos;
 			if (curlen > maxpos[1]) {
-				maxpos[0] = beg;
+				maxpos[0] = startpos;
 				maxpos[1] = curlen;
 			}
-			beg = i;
+			startpos = i;
 		}
 	}
 }
