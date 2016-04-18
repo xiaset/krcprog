@@ -13,18 +13,12 @@ int main() {
 	char line[LINELIMIT];
 	int i, len;
 	int maxpos[2];
-
-	len = getstripedline(line, LINELIMIT);
-	for (i = 0; i < LINELIMIT + 10; i++)
-		printf("\ni[%d] = %c (%d)", i, line[i], line[i]);
-//	longestline(text, maxpos);
-	printf("\nLine:\n%s", line);
-	printf("\nLength: %d\n\n", len);
-	reverse(line);
-	printf("\nReversed line:\n%s", line);
-	for (i = 0; i < LINELIMIT + 10; i++)
-		printf("\ni[%d] = %c (%d)", i, line[i], line[i]);
-//	printf("\nlongest line starts at %d, length %d\n", maxpos[0], maxpos[1]);
+	len = 2;
+	while (len >= 2) {
+		len = getstripedline(line, LINELIMIT);
+		reverse(line);
+		printf("\nReversed line: %s\n", line);
+	}
 	return 0;
 
 }
@@ -107,7 +101,6 @@ void reverse(char text[]) {
 		;
 	if (text[length] == '\n')
 		length--;
-	printf("\nreverse.length = %d\n", length);
 	for (i = 0; i <= length  / 2; i++) {
 		tmpc = text[length - i];
 		text[length - i] = text[i];
