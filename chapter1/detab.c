@@ -9,7 +9,7 @@ int main()
 	i = 0;
 	while ((c = getchar()) != EOF && i < TEXTLIMIT) {
 		if (c == '\t') {
-			for (j = (i / 4) * 4 + TABSIZE; i < j; i++)
+			for (j = i - (i % TABSIZE) + TABSIZE; i < j; i++)
 				text[i] = ' ';
 		} else {
 			text[i] = c;
